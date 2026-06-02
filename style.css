@@ -51,18 +51,19 @@ body {
 }
 
 /* ==========================================
-   HEADER / NAVBAR
+   HEADER / NAVBAR (ESCRITORIO)
    ========================================== */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px 8%;
-    background-color: rgba(10, 15, 18, 0.9);
+    background-color: rgba(10, 15, 18, 0.95);
     backdrop-filter: blur(10px);
     position: fixed;
     width: 100%;
     top: 0;
+    left: 0;
     z-index: 100;
     border-bottom: 1px solid rgba(57, 255, 20, 0.1);
 }
@@ -72,11 +73,17 @@ header {
     font-weight: 900;
     font-size: 1.5rem;
     letter-spacing: 2px;
+    white-space: nowrap;
 }
 
 .logo span {
     color: var(--portal-green);
     text-shadow: 0 0 10px var(--portal-green);
+}
+
+nav {
+    display: flex;
+    align-items: center;
 }
 
 nav a {
@@ -206,7 +213,6 @@ nav a:hover {
     overflow: hidden;
 }
 
-/* Efecto borde brillante al pasar el mouse */
 .card::before {
     content: '';
     position: absolute;
@@ -282,13 +288,13 @@ nav a:hover {
     line-height: 1.6;
 }
 
-/* BOTÓN DE WHATSAPP IMPACTANTE */
+/* BOTÓN DE WHATSAPP */
 .btn-whatsapp {
     display: inline-flex;
     align-items: center;
     gap: 12px;
     padding: 16px 36px;
-    background-color: #25d366; /* Color oficial WhatsApp */
+    background-color: #25d366;
     color: #fff;
     font-family: 'Orbitron', sans-serif;
     font-weight: 700;
@@ -324,31 +330,86 @@ footer {
 }
 
 /* ==========================================
-   RESPONSIVE DESIGN (MÓVILES)
+   RESPONSIVE DESIGN (MÓVILES ACTUALIZADO)
    ========================================== */
 @media (max-width: 768px) {
     header {
+        position: relative; /* Evita que flote incómodo tapando el inicio en pantallas chicas */
         flex-direction: column;
         gap: 15px;
-        padding: 15px;
+        padding: 20px 5%;
         text-align: center;
+        width: 100%;
     }
+
+    .logo {
+        font-size: 1.4rem;
+        margin: 0 auto;
+    }
+
+    nav {
+        flex-direction: column; /* Alinea los enlaces uno debajo del otro */
+        gap: 12px;
+        width: 100%;
+    }
+
     nav a {
-        margin: 0 10px;
-        font-size: 0.9rem;
+        margin-left: 0; /* Resetea el margen de escritorio */
+        font-size: 1rem;
+        padding: 4px 0;
+        display: block;
+        width: 100%;
     }
+
+    .btn-nav {
+        display: inline-block;
+        width: auto;
+        padding: 6px 20px;
+        margin-top: 5px;
+    }
+
     .hero {
+        height: auto;
+        min-height: calc(100vh - 160px);
         text-align: center;
         justify-content: center;
-        padding-top: 100px;
+        padding: 60px 5%;
+        margin-top: 0;
     }
+
     .hero-content h1 {
-        font-size: 2.3rem;
+        font-size: 2.2rem;
     }
+    
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    .services {
+        padding: 60px 5%;
+    }
+
+    .services h2 {
+        font-size: 2rem;
+        margin-bottom: 35px;
+    }
+
+    .cta-section {
+        padding: 60px 5%;
+    }
+
     .cta-container {
         padding: 40px 20px;
     }
+
     .cta-container h2 {
-        font-size: 1.8rem;
+        font-size: 1.7rem;
+    }
+    
+    .btn-whatsapp {
+        font-size: 1rem;
+        padding: 14px 24px;
+        width: 100%; /* El botón ocupa el ancho de la tarjeta en celulares para mejor click */
+        justify-content: center;
     }
 }
